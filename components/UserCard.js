@@ -1,22 +1,18 @@
-import {useState,useEffect} from "react";
-import {Card,Modal} from "antd";
+import {useState} from "react";
+import {Card} from "antd";
 import {
-	HeartOutlined,
 	EditOutlined,
 	DeleteFilled,
-	MailOutlined,
-	PhoneOutlined,
-	GlobalOutlined
 } from "@ant-design/icons";
 import EditModal from "./EditModal";
 import DeleteModal from "./DeleteModal";
 import Favorite from "./Favorite";
-
+import UserInfo from "./UserInfo";
 const UserCard = ({user}) => {
 	const [editing,setEditing] = useState(false) ;
 	const [deleting,setDeleting] = useState(false);
 
-	const handleEditing = (value) => {
+	const handleEdit = (value) => {
 		setEditing(value);
 	}
 	const handleDelete = (value) => {
@@ -37,29 +33,15 @@ const UserCard = ({user}) => {
 			}
 		    actions={[
 		    	<Favorite user={user}/>,
-		    	<EditOutlined onClick={() => handleEditing(true)}/>,
+		    	<EditOutlined onClick={() => handleEdit(true)}/>,
 		    	<DeleteFilled onClick={() => handleDelete(true)}/>
 		    ]}
 		>
-		  <div className="user__details">
-		    <h1 className="user__details--title">{user.name}</h1>
-		  	<div className="user__details--item">
-		  		<MailOutlined />
-		  		<p className="user__details--text">{user.email}</p>
-		  	</div>
-		  	<div className="user__details--item">
-		  		<PhoneOutlined />
-		  		<p className="user__details--text">{user.phone}</p>
-		  	</div>
-		  	<div className="user__details--item">
-		  		<GlobalOutlined />
-		  		<p className="user__details--text">http://{user.website}</p>
-		  	</div>
-		  </div>
+		  <UserInfo user={user}/>
 		  <EditModal 
 		  	isEditing={editing}
 		  	user={user}
-		  	handleEditing={handleEditing}
+		  	handleEdit={handleEdit}
 		  />
 		  <DeleteModal
 		    isDeleting={deleting}

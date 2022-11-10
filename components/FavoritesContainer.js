@@ -8,7 +8,7 @@ const FavoritesContainer = () => {
 	return (
 		<Layout>
 			{
-				users.favorites.length ?
+				users.favorites && users.favorites.length ?
 				users.favorites.map(user => (
 					<ColumnCard key={user.id}>
 						<UserCard user={user}/>

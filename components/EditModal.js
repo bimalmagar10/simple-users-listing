@@ -3,7 +3,7 @@ import {useUserContext} from "../context/user";
 import UserForm from "./UserForm";
 import { getUpdatedUsers}  from "../utils";
 
-const EditModal = ({isEditing,user,handleEditing}) => {
+const EditModal = ({isEditing,user,handleEdit}) => {
 	const [form] = Form.useForm();
 	const {users,setUsers} = useUserContext();
 	return (
@@ -12,7 +12,7 @@ const EditModal = ({isEditing,user,handleEditing}) => {
 			open={isEditing}
 			onCancel={() => {
 				form.resetFields();
-				handleEditing(false)}
+				handleEdit(false)}
 			}
 			onOk = { () => {
 				form
@@ -23,7 +23,7 @@ const EditModal = ({isEditing,user,handleEditing}) => {
 							data:getUpdatedUsers(users.data,user,values),
 							favorites:getUpdatedUsers(users.favorites,user,values)
 						}));
-						handleEditing(false);
+						handleEdit(false);
 					})
 					.catch(info => {
 						console.error("Validate Field");

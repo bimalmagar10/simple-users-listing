@@ -1,15 +1,19 @@
  import UsersContainer from "../components/UsersContainer";
  import FavoritesContainer from "../components/FavoritesContainer";
- export const tabList = [
-      {
-        key: 'user-lists',
-        tab: 'List of Users',
-      },
-      {
-        key: 'favorites',
-        tab: 'Favorite Users',
-      },
-  ];
+ import {Badge} from "antd";
+ 
+ export const tabList = (favCount) => { 
+     return [
+       {
+         key: 'user-lists',
+         tab: 'List of Users',
+       },
+       {
+         key: 'favorites',
+         tab:<Badge count={favCount}><p style={{padding:".3rem",marginBottom:"0"}}>Favorite Users</p></Badge>,
+       },
+   ];
+ };
  export const contentList = {
     "user-lists":<UsersContainer/>,
     "favorites":<FavoritesContainer/>,
