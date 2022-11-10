@@ -1,7 +1,9 @@
 import {Modal,Form} from "antd";
 import {useUserContext} from "../context/user";
 import UserForm from "./UserForm";
-const UserModal = ({isEditing,user,handleEditing}) => {
+import { getUpdatedUsers}  from "../utils";
+
+const EditModal = ({isEditing,user,handleEditing}) => {
 	const [form] = Form.useForm();
 	const {users,setUsers} = useUserContext();
 	return (
@@ -16,15 +18,10 @@ const UserModal = ({isEditing,user,handleEditing}) => {
 				form
 					.validateFields()
 					.then(values => {
-						const editedUser = users.data.map(el => {
-							if(el.id === user.id){
-								return {...el,...values};
-							} else {
-								return el;
-							}
-						});
 						setUsers(prev => ({
-							...prev,data:editedUser
+							...prev,
+							data:getUpdatedUsers(users.data,user,values),
+							favorites:getUpdatedUsers(users.favorites,user,values)
 						}));
 						handleEditing(false);
 					})
@@ -39,4 +36,4 @@ const UserModal = ({isEditing,user,handleEditing}) => {
 	)
 };
 
-export default UserModal;
+export default EditModal;

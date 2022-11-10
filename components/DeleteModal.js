@@ -5,7 +5,11 @@ import {ExclamationCircleOutlined} from "@ant-design/icons";
 const DeleteModal =({isDeleting,user,handleDelete}) => {
 	const {setUsers} = useUserContext();
 	const deleteUser = (user) => {
-	  setUsers(prev => ({...prev,data:prev.data.filter(el => el.id !== user.id)}));
+	  setUsers(prev => ({
+	  	...prev,
+	  	data:prev.data.filter(el => el.id !== user.id),
+	  	favorites:prev.favorites.filter(el => el.id !== user.id)
+	  }));
 	};
 	return (
 		<Modal

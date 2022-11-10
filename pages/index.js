@@ -1,27 +1,24 @@
-import UsersContainer from "../components/UsersContainer";
+import {useState} from "react";
+import {Card} from "antd";
+import {tabList,contentList} from "../utils";
 export default function Home() {
-//   const add = (user)  => {
-//     if(users.favorites.length) {
-//         const isAlreadyOnFav = users.favorites.filter(el => el.id === user.id);
-//         if(isAlreadyOnFav.length){
-//           const newFavorites = users.favorites.filter(el => el.id != user.id);
-//           setUsers(prev => (
-//             {...prev,favorites:newFavorites}
-//           ))
-//         } else {
-//           setUsers(prev => {
-//              return {...prev,favorites:prev.favorites.concat(user)}
-//           })
-//         }
-// 
-//     } else {
-//       setUsers(prev => {
-//         return {...prev,favorites:prev.favorites.concat(user)}
-//       })
-//     }
-//   };
+  const [activeTabKey, setActiveTabKey] = useState('user-lists');
+  const onTab2Change = (key) => {
+    setActiveTabKey(key);
+  };
   return (
-    <>
-      <UsersContainer/>
-    </> )
+      <Card
+        style={{
+          width: '100%',
+        }}
+        tabList={tabList}
+        activeTabKey={activeTabKey}
+         
+        onTabChange={(key) => {
+          onTab2Change(key);
+        }}
+      >
+        {contentList[activeTabKey]}
+      </Card>
+  );
 }

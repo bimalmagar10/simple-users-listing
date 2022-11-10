@@ -14,8 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
-.padding__1rem {
+.container{
   padding:.5rem;
+  min-height:90vh;
 }
 
 .user__details {
@@ -47,6 +48,9 @@ a {
 .user__delete--msg {
   font-size:1rem;
   margin-bottom:0;
+}
+.user__favorite {
+  color:orangered !important;
 }
 
 @media (prefers-color-scheme: dark) {

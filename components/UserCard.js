@@ -8,7 +8,7 @@ import {
 	PhoneOutlined,
 	GlobalOutlined
 } from "@ant-design/icons";
-import UserModal from "./UserModal";
+import EditModal from "./EditModal";
 import DeleteModal from "./DeleteModal";
 import Favorite from "./Favorite";
 
@@ -56,7 +56,7 @@ const UserCard = ({user}) => {
 		  		<p className="user__details--text">http://{user.website}</p>
 		  	</div>
 		  </div>
-		  <UserModal 
+		  <EditModal 
 		  	isEditing={editing}
 		  	user={user}
 		  	handleEditing={handleEditing}
