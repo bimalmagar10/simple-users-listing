@@ -9,7 +9,9 @@ import {
 	GlobalOutlined
 } from "@ant-design/icons";
 import UserModal from "./UserModal";
-import DeleteModal from "./DeleteModal"
+import DeleteModal from "./DeleteModal";
+import Favorite from "./Favorite";
+
 const UserCard = ({user}) => {
 	const [editing,setEditing] = useState(false) ;
 	const [deleting,setDeleting] = useState(false);
@@ -34,7 +36,7 @@ const UserCard = ({user}) => {
 				/>
 			}
 		    actions={[
-		    	<HeartOutlined style={{color:"orangered"}}/>,
+		    	<Favorite user={user}/>,
 		    	<EditOutlined onClick={() => handleEditing(true)}/>,
 		    	<DeleteFilled onClick={() => handleDelete(true)}/>
 		    ]}
