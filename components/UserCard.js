@@ -1,4 +1,5 @@
 import {useState} from "react";
+import Image from 'next/image';
 import {Card} from "antd";
 import {
 	EditOutlined,
@@ -25,9 +26,9 @@ const UserCard = ({user}) => {
 				width:"100%"
 			}}
 			cover={
-				<img
-				  width="280"
-				  height="200"
+				<Image
+				  width={280}
+				  height={200}
 				  alt="This is me"
 				  src={`https://joeschmoe.io/api/v1/${user.avatar}`}
 				/>
