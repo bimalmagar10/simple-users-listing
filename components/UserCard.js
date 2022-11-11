@@ -1,5 +1,4 @@
 import {useState} from "react";
-import Image from 'next/image';
 import {Card} from "antd";
 import {
 	EditOutlined,
@@ -26,17 +25,19 @@ const UserCard = ({user}) => {
 				width:"100%"
 			}}
 			cover={
-				<Image
-				  width={280}
-				  height={200}
-				  alt="This is me"
-				  src={`https://joeschmoe.io/api/v1/${user.avatar}`}
-				/>
+				<picture>
+					<img
+					alt="This is me"
+					  src={`https://joeschmoe.io/api/v1/${user.avatar}`}
+					  width={280}
+					  height={200}
+					/>
+				</picture>
 			}
 		    actions={[
-		    	<Favorite user={user}/>,
-		    	<EditOutlined onClick={() => handleEdit(true)}/>,
-		    	<DeleteFilled onClick={() => handleDelete(true)}/>
+		    	<Favorite key={user.id} user={user}/>,
+		    	<EditOutlined key={user.id} onClick={() => handleEdit(true)}/>,
+		    	<DeleteFilled key={user.id} onClick={() => handleDelete(true)}/>
 		    ]}
 		>
 		  <UserInfo user={user}/>
