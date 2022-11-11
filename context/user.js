@@ -8,7 +8,7 @@ export function UserProvider({ children }){
 	 	getUsers();
 	 },[])
 	 const getUsers = async () => {
-			const res = await fetch("http://localhost:3000/api/user");
+			const res = await fetch("https://simple-users-listing-bfiq.vercel.app/api/user");
 	 	    const { users:data } = await res.json();
 	 	    setUsers({data,favorites:[]});
 	 };
