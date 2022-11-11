@@ -2,7 +2,7 @@
 
 A simple web application to list the users by fetching it from the [REST API](https://jsonplaceholder.typicode.com/users).It includes several multiple features.First of all,it has adding users to favorite list.This will showcase the favorite users list if a particular user is added to favorite list.Aside from that, this  is perfect epitome of **add to cart** features that almost all e-commerce applications has.Second of all, it has editing the user feature.One can edit the user's details as required.Finally, deleting feature will make it easy for deleting the particular user.
 
-### [Demo Here]().
+### [Demo Here](https://simple-users-listing-bfiq.vercel.app/).
 
 ## Technologies Used
 
