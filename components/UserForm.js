@@ -1,4 +1,5 @@
 import {Form,Input} from "antd";
+import PropTypes from "prop-types";
 
 const UserForm = ({user,form}) => {
 	return (
@@ -63,5 +64,10 @@ const UserForm = ({user,form}) => {
 		</Form>
 	);
 };
+
+UserForm.propTypes = {
+	user:PropTypes.object.isRequired,
+	form:PropTypes.object.isRequired
+}
 
 export default UserForm;

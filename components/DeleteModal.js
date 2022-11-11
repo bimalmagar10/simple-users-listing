@@ -1,6 +1,7 @@
 import {Modal} from "antd";
 import {useUserContext} from "../context/user";
 import {ExclamationCircleOutlined} from "@ant-design/icons";
+import PropTypes from "prop-types";
 
 const DeleteModal =({isDeleting,user,handleDelete}) => {
 	const {setUsers} = useUserContext();
@@ -31,5 +32,10 @@ const DeleteModal =({isDeleting,user,handleDelete}) => {
 		</Modal>
 	);
 };
+DeleteModal.propTypes = {
+	isDeleting:PropTypes.bool.isRequired,
+	handleDelete:PropTypes.func.isRequired,
+	user:PropTypes.object.isRequired
+}
 
 export default DeleteModal;

@@ -2,7 +2,7 @@ import {Modal,Form} from "antd";
 import {useUserContext} from "../context/user";
 import UserForm from "./UserForm";
 import { getUpdatedUsers}  from "../utils";
-
+import PropTypes from "prop-types";
 const EditModal = ({isEditing,user,handleEdit}) => {
 	const [form] = Form.useForm();
 	const {users,setUsers} = useUserContext();
@@ -35,5 +35,11 @@ const EditModal = ({isEditing,user,handleEdit}) => {
 		</Modal>
 	)
 };
+
+EditModal.propTypes = {
+	isEditing:PropTypes.bool.isRequired,
+	handleEdit:PropTypes.func.isRequired,
+	user:PropTypes.object.isRequired
+}
 
 export default EditModal;

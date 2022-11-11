@@ -1,5 +1,7 @@
 import {HeartOutlined,HeartFilled} from "@ant-design/icons";
 import {useUserContext} from "../context/user";
+import PropTypes from "prop-types";
+
 const Favorite = ({user}) => {
 	const {users,setUsers} = useUserContext();
 	const isOnFav = users.favorites.filter(el => el.id === user.id);
@@ -41,5 +43,9 @@ const Favorite = ({user}) => {
 		</>
 	);
 };
+
+Favorite.propTypes = {
+	user:PropTypes.object.isRequired
+}
 
 export default Favorite;

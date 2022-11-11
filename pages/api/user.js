@@ -8,9 +8,7 @@ export default function handler(req,res) {
 
 	async function getAllUsers() {
 		try {
-			console.log(process.env.USERS_FETCH_API);
 			const users = await axios.get("https://jsonplaceholder.typicode.com/users");
-			console.log(users);
 			const {data} = users;
 			const newUsers = data.map(user => ({...user,avatar:setAvatar(user.id)}));
 			res.status(200).json({users:newUsers});

@@ -3,6 +3,7 @@ import {
 	PhoneOutlined,
 	GlobalOutlined
 } from "@ant-design/icons";
+import PropTypes from "prop-types";
 const UserInfo = ({user}) => (
 	<div className="user__details">
 		    <h1 className="user__details--title">{user.name}</h1>
@@ -20,5 +21,9 @@ const UserInfo = ({user}) => (
 		  	</div>
 	</div>
 );
+
+UserInfo.propTypes = {
+	user:PropTypes.object.isRequired
+}
 
 export default UserInfo;

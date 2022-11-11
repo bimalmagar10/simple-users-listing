@@ -8,6 +8,7 @@ import EditModal from "./EditModal";
 import DeleteModal from "./DeleteModal";
 import Favorite from "./Favorite";
 import UserInfo from "./UserInfo";
+import PropTypes from "prop-types";
 const UserCard = ({user}) => {
 	const [editing,setEditing] = useState(false) ;
 	const [deleting,setDeleting] = useState(false);
@@ -50,6 +51,10 @@ const UserCard = ({user}) => {
 		  />
 		</Card>
 	);
+}
+
+UserCard.propTypes = {
+	user:PropTypes.object.isRequired
 }
 
 export default UserCard;

@@ -1,4 +1,5 @@
 import {Col} from "antd";
+import PropTypes from "prop-types";
 const ColumnCard = ({children}) => (
 	<Col 
 		xs={{
@@ -14,5 +15,9 @@ const ColumnCard = ({children}) => (
 		{children}
 	</Col>
 );
+
+ColumnCard.propTypes = {
+	children:PropTypes.node.isRequired
+}
 
 export default ColumnCard;
